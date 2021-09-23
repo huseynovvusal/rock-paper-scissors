@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap");
+
+$purple: #601155;
+$white: #fff;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Rubik", sans-serif;
+  background: $purple;
+}
+
+.alert {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  font-size: 5rem;
+  transition: 300ms all ease-in-out;
+  user-select: none;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9;
+
+  @media screen and(max-width: 768px) {
+    font-size: 3rem;
+  }
+}
+
+.alert-visible {
+  opacity: 1;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .score {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: $white;
+
+    @media screen and(max-width: 768px) {
+      font-size: 2rem;
+    }
+
+    span {
+      &:first-child,
+      &:last-child {
+        padding: 0.5rem 1rem;
+        background: $white;
+        color: $purple;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+
+  .game {
+    display: flex;
+    justify-content: center;
+    width: 110%;
+
+    img {
+      width: 10rem;
+      user-select: none;
+      border-radius: 50%;
+      transition: 300ms all ease-in-out;
+
+      @media screen and(max-width: 768px) {
+        width: 5rem;
+      }
+    }
+
+    .user-input {
+      img {
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.1);
+          margin: 0 0.5rem;
+        }
+      }
+    }
+
+    .comp-input {
+      img {
+        padding-left: 2rem;
+      }
+    }
+
+    .no-hover {
+      img {
+        &:hover {
+          transform: scale(1);
+          margin: 0;
+        }
+      }
+    }
+  }
+}
